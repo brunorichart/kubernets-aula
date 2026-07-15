@@ -108,4 +108,16 @@ kubectl delete -f C:\infra\clusters\mydb.yml
 kubectl create secret generic mysecret --from-literal MYSQL_ROOT_PASSWORD=mypass --from-literal MYSQL_DATABASE=mydb --from-literal MYSQL_USER=wordpress --from-literal MYSQL_PASSWORD=wppass
 kubectl get secrets
 echo "d29yZHByZXNz" | base64 -d
+kubectl exec -ti mydb-9fd4f568f-h98r2 -- bash
+env | grep MYSQL
 
+# Criar o ConfigMaps 
+kubectl create configmap myindex --from-file C:\infra\clusters\index.html
+kubectl delete -f C:\infra\clusters\myapp.yml 
+kubectl create -f C:\infra\clusters\myapp.yml 
+kubectl get pods
+kubectl delete -f C:\infra\clusters\service.yml
+kubectl create -f C:\infra\clusters\service1.yml
+kubectl get pods -o wide
+kubectl get endpoints
+kubectl port-forward svc/mydeploy 8080:8080
