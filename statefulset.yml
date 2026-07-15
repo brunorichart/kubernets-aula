@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: mystatefulset
+  labels:
+    app: mystatefulset
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: mystatefulset
+  template:
+    metadata:
+      labels:
+        app: mystatefulset
+    spec:
+      containers:
+      - name: myapp
+        image: nginx
