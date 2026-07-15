@@ -102,7 +102,10 @@ kubectl get deployment
 kubectl logs -f mydb-c76d5f5fb-l8p7b
 kubectl delete -f C:\infra\clusters\mydb.yml 
 
-
-
-
+# Secret
+kubectl get pods
+kubectl delete -f C:\infra\clusters\mydb.yml 
+kubectl create secret generic mysecret --from-literal MYSQL_ROOT_PASSWORD=mypass --from-literal MYSQL_DATABASE=mydb --from-literal MYSQL_USER=wordpress --from-literal MYSQL_PASSWORD=wppass
+kubectl get secrets
+echo "d29yZHByZXNz" | base64 -d
 

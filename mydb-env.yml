@@ -17,6 +17,12 @@ spec:
       containers:
       - name: mydb
         image: mysql
-        envFrom:
-        - secretRef:
-            name: mysecret
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: "mypass"
+        - name: MYSQL_DATABASE
+          value: "mydb"
+        - name: MYSQL_USER
+          value: "wordpress"
+        - name: MYSQL_PASSWORD
+          value: "wppass"
